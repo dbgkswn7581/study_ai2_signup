@@ -35,15 +35,16 @@ def result():
         result = request.form
         re_dict = request.form.to_dict()
         dir = db.reference('user')
-        print(dir.get())
+        if re_dict['nick'] in dir:
+            return render_template('result2.html', result = result)
+        else:
+            return render_template('result.html', result = result)
         # dir.child(re_dict['nick']).update(re_dict)
 
-        return render_template('result.html', result = result)
-
-
         
-        
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
+    
