@@ -2,10 +2,6 @@ from flask import Flask, render_template, request
 import os
 app = Flask(__name__)
 
-import sys
-import logging
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
 
 @app.route('/')
 def student():
@@ -39,14 +35,14 @@ def result():
         result = request.form
         re_dict = request.form.to_dict()
         dir = db.reference('user')
-        if dir.child(re_dict['nick']):
-            return render_template('result2.html', result = result)
-            
-        else:
-            dir.child(re_dict['nick']).update(re_dict)
-            return render_template('result.html', result = result)
-            
+        print(dir.get())
+        # dir.child(re_dict['nick']).update(re_dict)
 
+        return render_template('result.html', result = result)
+
+
+        
+        
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
