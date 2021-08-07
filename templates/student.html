@@ -1,9 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title>study_ai2_flask</title>
+    <meta charseet="utf-8">
+</head>
+
+<script>
+    // 웹뷰 스트링 지정 함수
+	function sendWebviewString1(){
+		var str = document.getElementById("in1").value;  //사용자가 텍스트박스 in에 입력한 텍스트 가져와 변수 str에 저장
+		window.AppInventor.setWebViewString(str);  //변수 str의 값을 웹뷰스트링으로 지정
+	}
+	
+    function sendWebviewString2(){
+		var str = document.getElementById("in2").value;  //사용자가 텍스트박스 in에 입력한 텍스트 가져와 변수 str에 저장
+		window.AppInventor.setWebViewString(str);  //변수 str의 값을 웹뷰스트링으로 지정
+	}
+</script>
+
 <html>
     <body>
         <form action = "https://study-ai2-flask.herokuapp.com/result" method = "POST">
-            <p>닉네임 <input type = "text" name = "nick" /></p>
-            <p>비밀번호 <input type = "number" name = "pw" /></p>
-            <p> <input type = "submit" value="회원가입" /> </p>
+            <p>닉네임 <input type = "text" name = "nick" id='in1'/></p>
+            <p>비밀번호 <input type = "number" name = "pw" id='in2'/></p>
+            <p> <input type = "submit" value="회원가입" onclick="sendWebviewString1(); sendWebviewString2();"/> </p>
         
         </form>
     </body>
