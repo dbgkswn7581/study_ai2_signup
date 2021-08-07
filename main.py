@@ -35,10 +35,13 @@ def result():
         result = request.form
         re_dict = request.form.to_dict()
         dir = db.reference('user')
+
         if re_dict['nick'] in dir:
             return render_template('result2.html', result = result)
         else:
-            return render_template('result.html', result = result)
+            dir.child(re_dict['nick']).update(re_dict)
+        return render_template('result.html', result = result)
+
         # dir.child(re_dict['nick']).update(re_dict)
 
         
