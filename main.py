@@ -43,10 +43,6 @@ def result():
         print(request.form.to_dict())
         return render_template('result.html', result = result)
 
-@app.errorhandler(500)
-@app.route('/error')
-def same_nickname(error):
-    return render_template('error500.html')
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
