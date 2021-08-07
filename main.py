@@ -38,9 +38,7 @@ def result():
 
         print(dir.get())
 
-        if str(re_dict['nick']) in dir:
-            return render_template('result2.html', result = result)
-        else:
+        if not re_dict['nick'] in dir:
             dir.child(re_dict['nick']).update(re_dict)
         
         return render_template('result.html', result = result)
