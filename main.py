@@ -39,9 +39,11 @@ def result():
         result = request.form
         re_dict = request.form.to_dict()
         dir = db.reference('user')
-        dir.child(re_dict['nick']).update(re_dict)
-        print(request.form.to_dict())
-        return render_template('result.html', result = result)
+        if not dir.child(re_dict['nick']):
+            dir.child(re_dict['nick']).update(re_dict)
+            return render_template('result.html', result = result)
+        else:
+            return render_template('result2.html', result = result)
 
 
 if __name__ == "__main__":
