@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
+import sys
+import logging
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
+
 @app.route('/')
 def student():
     return render_template('student.html')
