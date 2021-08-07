@@ -1,22 +1,4 @@
 <!DOCTYPE html>
-<head>
-    <title>study_ai2_flask</title>
-    <meta charseet="utf-8">
-</head>
-
-<script>
-    // 웹뷰 스트링 지정 함수
-	function sendWebviewString(){
-		var str = document.getElementById("in").value;  //사용자가 텍스트박스 in에 입력한 텍스트 가져와 변수 str에 저장
-		window.AppInventor.setWebViewString(str);  //변수 str의 값을 웹뷰스트링으로 지정
-	}
-	
-	// 웹뷰 스트링 가져오기 함수
-	function getWebviewString(){
-		document.getElementById("get").value = window.AppInventor.getWebViewString();  //텍스트박스 get에 현재 지정된 웹뷰스트링 가져와 지정
-	}
-</script>
-
 <html>
     <body>
         <table border = 1>
@@ -30,15 +12,7 @@
         </table>
         <h1> 회원가입이 완료되었습니다. </h1>
         
-        <br><hr><br>
-
-        <input type="text" id="in">
-        <input type="button" value="앱으로 전송" onclick="sendWebviewString()">
-
-        <br><hr><br>
-
-        <input type="button" value="가져오기" onclick="getWebviewString();">
-        <input type="text" id="get">
+        
         
     </body>
 </html>
